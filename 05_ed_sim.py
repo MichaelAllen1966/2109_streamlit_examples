@@ -7,10 +7,11 @@ import ed_sim_simpy_model as ed
 
 st.title('Emergency Department Queuing Simulation')
 
-docs = st.slider('Number of doctors', 1, 5, 2)
-inter_arrival = st.slider(
+col1, col2, col3 = st.columns(3)
+docs = col1.slider('Number of doctors', 1, 5, 2)
+inter_arrival = col2.slider(
     'Average time between patient arrivals (minutes)',1, 30, 10)
-process_time = st.slider('Average time to process patients', 5, 40, 18)
+process_time = col3.slider('Average time to process patients', 5, 40, 18)
 
 model = ed.Model(docs, inter_arrival, 18)
 
