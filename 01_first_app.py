@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+import time
 
 # Add a title
 st.title('My first app')
@@ -34,4 +35,36 @@ if st.checkbox('Show dataframe'):
        np.random.randn(20, 3),
        columns=['a', 'b', 'c'])
 
+    # When an object is on its own st.write() is assumed
     chart_data
+
+# Use a selectbox for options
+option = st.selectbox(
+    'Which number do you like best?',
+     [1, 3, 5, 7, 11])
+
+'You selected: ', option
+
+
+# Use a sidebar for options (appears on left)
+option_2 = st.sidebar.selectbox(
+    'Which number do you like best?',
+     [1, 3, 5, 7, 11],
+     key=2)
+
+'You selected:', option_2
+
+# A progress bar
+'Starting a long computation...'
+
+# Add a timer bar
+latest_iteration = st.empty()
+bar = st.progress(0)
+
+for i in range(100):
+  # Update the progress bar with each iteration.
+  latest_iteration.text(f'Iteration {i+1}')
+  bar.progress(i + 1)
+  time.sleep(0.3)
+
+'...and now we\'re done!'
