@@ -13,7 +13,7 @@ inter_arrival = col2.slider(
     'Average time between patient arrivals (minutes)',1, 30, 10)
 process_time = col3.slider('Average time to process patients', 5, 40, 18)
 
-model = ed.Model(docs, inter_arrival, 18)
+model = ed.Model(docs, inter_arrival, process_time)
 
 if st.button('Run model'):
     # Get results
