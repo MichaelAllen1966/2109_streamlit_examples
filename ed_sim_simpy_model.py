@@ -168,9 +168,9 @@ class Model:
         
         # End of simulation run. Build and save results.
         # The saved results are the raw audit data
-        self.global_vars.patient_queuing_results.to_csv('patient results.csv')
+        #self.global_vars.patient_queuing_results.to_csv('patient results.csv')
         self.build_audit_results()
-        self.global_vars.results.to_csv('operational results.csv')
+        #self.global_vars.results.to_csv('operationa_ results.csv')
         # Get a chart of results
         chart_output = self.chart()
         # Get text summary of results
@@ -214,7 +214,7 @@ class Model:
         
         # Put text in string to return
         text = []
-        text.append('PATIENT_CENTERED METRICS:')
+        text.append('PATIENT-CENTERED METRICS:')
         text.append ('Lower quartile time in system by priority:')
         text.append (self.global_vars.patient_queuing_results.groupby('priority').quantile(0.25))
         text.append ('Median time in system by priority:')
